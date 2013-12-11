@@ -7,7 +7,8 @@ Node.js, Express, MongoDB and AngularJS.
 
 The backend is a simple RESTful API written with Express with the following endpoints:
 
-|**Method** |**URL**                |**Authenticated**  |**Description**        |
+|Method     |URL                    |Authenticated      |Description            |
+|-----------|-----------------------|-------------------|-----------------------|
 |**GET**    |`/api/findAllSessions` |TODO               |Returns all sessions   |
 |**GET**    |`/api/findSessionById` |TODO               |Returns session with specified id|
 
@@ -15,4 +16,4 @@ More to come.
 
 ## Getting set up
 
-Clone the repo, run `npm install` then `node app.js`
+Clone the repo, run `npm install`, then `node app.js`

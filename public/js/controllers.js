@@ -2,26 +2,21 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', []).
-  controller('AppCtrl', function ($scope, $http) {
+var bidControllers = angular.module('bidControllers', []);
 
+bidControllers.controller('homeCtrl', function ($scope, $http) {
     $http({
-      method: 'GET',
-      url: '/api/name'
+        method: 'GET',
+        url: '/api/findAllSessions'
     }).
     success(function (data, status, headers, config) {
-      $scope.name = data.name;
+        $scope.sessions = data;
     }).
     error(function (data, status, headers, config) {
-      $scope.name = 'Error!'
+        $scope.name = 'Error!'
     });
+});
 
-  }).
-  controller('MyCtrl1', function ($scope) {
+bidControllers.controller('loginCtrl', function ($scope, $http) {
     // write Ctrl here
-
-  }).
-  controller('MyCtrl2', function ($scope) {
-    // write Ctrl here
-
-  });
+})

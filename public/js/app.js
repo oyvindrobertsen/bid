@@ -2,20 +2,22 @@
 
 // Declare app level module which depends on filters, and services
 
-angular.module('myApp', [
-  'myApp.controllers',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives'
+angular.module('bidApp', [
+  'ngRoute',
+  'bidControllers'
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.
-    when('/view1', {
-      templateUrl: 'index',
-      controller: 'MyCtrl1'
+    when('/home', {
+      templateUrl: 'partials/homepartial.html',
+      controller: 'homeCtrl'
+    }).
+    when('/login', {
+        templateUrl: 'partials/login.html',
+        controller: 'loginCtrl'
     }).
     otherwise({
-      redirectTo: '/view1'
+      redirectTo: '/home'
     });
 
   $locationProvider.html5Mode(true);

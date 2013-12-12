@@ -6,6 +6,7 @@
 var express = require('express'),
   routes = require('./routes'),
   api = require('./routes/api'),
+  index = require('./routes/index'),
   http = require('http'),
   path = require('path');
 
@@ -19,7 +20,7 @@ var app = module.exports = express();
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
+app.engine('html', require('ejs').renderFile);
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -41,15 +42,15 @@ if (app.get('env') === 'production') {
  * Routes
  */
 
-// serve index and view partials
-// TODO Add Angular links
+// serve index and login and stuff
+app.get('/home', index.home);
 
 // JSON API
 app.get('/api/findAllSessions', api.findAllSessions);
 app.get('/api/findSessionById/:id', api.findSessionById);
 
 // redirect all others to the index (HTML5 history)
-app.get('*', api.findAllSessions);
+app.get('*', index.home);
 
 
 /**

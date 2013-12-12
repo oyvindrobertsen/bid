@@ -1,8 +1,8 @@
 
 /*
- * GET home page.
+ * GET main application page, entry point for Angular app.
  */
 
-exports.index = function(req, res){
-  res.render('index');
+exports.home = function(req, res){
+  res.render('index.html');
 };

@@ -44,6 +44,9 @@ if (app.get('env') === 'production') {
 
 // serve index and login and stuff
 app.get('/home', index.home);
+app.get('/login', index.login);
+app.get('/register', index.register);
+app.get('/app', index.app);
 
 // JSON API
 app.get('/api/findAllSessions', api.findAllSessions);

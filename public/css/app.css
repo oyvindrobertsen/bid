@@ -1,1 +1,35 @@
+#promotext {
+    color: #e67e22;
+    margin-bottom: 35px;
+}
 
+#homeheader {
+    font-size: 30em;
+    font-weight: bold;
+    color: #d35400;
+}
+
+.orangebutton {
+    color: #fff;
+    background-color: #d35400;
+    background-image: none;
+}
+
+.orangebutton:hover {
+    background-color: #e67e22;
+    color: #fff;
+}
+
+#loginpanel {
+    margin-top: 50px;
+}
+
+.panel {
+    border-color: #d35400;
+}
+
+#loginpanel .panel-heading {
+    background-color: #d35400;
+    border-color: #d35400;
+    color: #fff;
+}

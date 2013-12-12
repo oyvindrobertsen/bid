@@ -1,6 +1,11 @@
 <!doctype>
-<html>
+<html ng-app="bidApp">
     <head>
+        <!-- Angular -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-route.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/controllers.js"></script>
         <!-- jQuery -->
         <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
         <!-- Bootstrap -->
@@ -12,13 +17,7 @@
     </head>
     <body>
         <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <h1 id="homeheader" class="text-center">Bid</h1>
-                    <h3 id="promotext" class="text-center"><b>Join loads of other people in hosting super simple bidding sessions online.</b></h3>
-                    <a class="btn btn-lg btn-block orangebutton" href="/login" role="button">Login</a>
-                </div>
-            </div>
+            <div ng-view></div>
         </div>
     </body>
 </html>

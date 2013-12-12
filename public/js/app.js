@@ -16,6 +16,10 @@ config(function ($routeProvider, $locationProvider) {
         templateUrl: 'partials/login.html',
         controller: 'loginCtrl'
     }).
+    when('/register', {
+        templateUrl: 'partials/register.html',
+        controller: 'registerCtrl'
+    }).
     otherwise({
       redirectTo: '/home'
     });

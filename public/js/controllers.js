@@ -11,12 +11,17 @@ bidControllers.controller('homeCtrl', function ($scope, $http) {
     }).
     success(function (data, status, headers, config) {
         $scope.sessions = data;
+        $scope.sessionCount = data.length;
     }).
     error(function (data, status, headers, config) {
-        $scope.name = 'Error!'
+        $scope.errormsg = "Couldn't GET /api/findAllSessions";
     });
 });
 
 bidControllers.controller('loginCtrl', function ($scope, $http) {
     // write Ctrl here
-})
+});
+
+bidControllers.controller('registerCtrl', function ($scope, $http) {
+    
+});

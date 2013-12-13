@@ -20,7 +20,7 @@
     color: #fff;
 }
 
-#loginpanel {
+.orangepanel {
     margin-top: 50px;
 }
 
@@ -28,8 +28,18 @@
     border-color: #d35400;
 }
 
-#loginpanel .panel-heading {
+.orangepanel .panel-heading {
     background-color: #d35400;
     border-color: #d35400;
     color: #fff;
+}
+
+.header-link h3 {
+    font-size: 5em;
+    font-weight: bold;
+    color: #d35400;
+}
+
+.header-link:hover {
+    text-decoration: none;
 }

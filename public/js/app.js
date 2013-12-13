@@ -8,20 +8,12 @@ angular.module('bidApp', [
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.
-    when('/home', {
+    when('/app', {
       templateUrl: 'partials/homepartial.html',
-      controller: 'homeCtrl'
-    }).
-    when('/login', {
-        templateUrl: 'partials/login.html',
-        controller: 'loginCtrl'
-    }).
-    when('/register', {
-        templateUrl: 'partials/register.html',
-        controller: 'registerCtrl'
+      controller: 'appCtrl'
     }).
     otherwise({
-      redirectTo: '/home'
+      redirectTo: '/app'
     });
 
   $locationProvider.html5Mode(true);

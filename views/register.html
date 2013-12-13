@@ -12,7 +12,30 @@
     </head>
     <body>
         <div class="container">
-            Register
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <a class="header-link" href="/"><h3 class="text-center">Bid</h3></a>
+                    <div class="panel panel-default orangepanel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title text-center">Register</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form method="post" action="register">
+                                <div class="form-group">
+                                    <input type="text" name="first_name" class="form-control" placeholder="First name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="username" class="form-control" placeholder="Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                </div>
+                                <input class="btn btn-lg btn-block orangebutton" type="submit" value="Register">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>

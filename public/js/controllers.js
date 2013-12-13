@@ -4,7 +4,7 @@
 
 var bidControllers = angular.module('bidControllers', []);
 
-bidControllers.controller('homeCtrl', function ($scope, $http) {
+bidControllers.controller('appCtrl', function ($scope, $http) {
     $http({
         method: 'GET',
         url: '/api/findAllSessions'

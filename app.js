@@ -12,6 +12,7 @@ var express = require('express'),
     http = require('http'),
     path = require('path'),
     connect = require('connect'),
+    auth = require('./routes/auth'),
     request = require('request');
 
 var app = module.exports = express();
@@ -35,30 +36,14 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
 
-function findByUsername(username, fn) {
-    request.get('http://localhost:3000/api/findUsers', function (err, res, data) {
-        var users = JSON.parse(data);
-        for (var i = 0; i < users.length; i++) {
-            var user = users[i];
-            if (user.username === username) {
-                return fn(null, user);
-            }
-        }
-        return fn(null, null);
-    });
-}
 
-
-function findById (id, fn) {
-    request.get('http://localhost:3000/api/findUserById/' + id, function (err, res, data) {
-        var user = JSON.parse(data);
-        if (user) {
-            return fn(null, user);
-        }
-        return fn(new Error('User ' + id + ' does not exist.'));
-    })
-}
-
+/**
+ * Middleware for ensuring a user is authenticated before
+ * allowing him/her to be routed to an authenticated destination.
+ * @param   req     request
+ * @param   res     response
+ * @param   next    the next function
+ */
 function ensureAuth (req, res, next) {
     if (req.isAuthenticated()) { return next(); }
     res.redirect('/login');
@@ -69,14 +54,14 @@ passport.serializeUser(function (user, done) {
 });
 
 passport.deserializeUser(function (id , done) {
-    findById(id, function (err, user) {
+    auth.findUserById(id, function (err, user) {
         done(err, user);
     });
 });
 
 passport.use(new LocalStrategy(
             function (username, password, done) {
-                findByUsername (username, function (err, user) {
+                auth.findByUsername (username, function (err, user) {
                     if (err) { return done(err); }
                     if (!user) {
                         return done(null, false, { message: 'Unknown user ' + username }); 
@@ -116,13 +101,11 @@ app.post('/logout', function(req, res) {
     res.redirect('/home');
 });
 
-app.post('/register', api.addUser);
+app.post('/register', auth.addUser);
 
 // JSON API
 app.get('/api/findAllSessions', ensureAuth, api.findAllSessions);
 app.get('/api/findSessionById/:id', ensureAuth, api.findSessionById);
-app.get('/api/findUsers', api.findUsers);
-app.get('/api/findUserById/:id', api.findUserById);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', index.home);

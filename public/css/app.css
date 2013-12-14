@@ -1,3 +1,7 @@
+body {
+    padding-top: 70px;
+}
+
 #promotext {
     color: #e67e22;
     margin-bottom: 35px;
@@ -41,5 +45,17 @@
 }
 
 .header-link:hover {
+    text-decoration: none;
+}
+
+.navbar {
+    background-color: #d35400;
+}
+
+.navbar a {
+    color: white;
+}
+
+.navbar a:hover {
     text-decoration: none;
 }

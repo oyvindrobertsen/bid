@@ -11,8 +11,6 @@ The backend is a simple RESTful API written with Express with the following endp
 |-----------|-----------------------|-------------------|-----------------------|
 |**GET**    |`/api/findAllSessions` |Yes                |Returns all sessions   |
 |**GET**    |`/api/findSessionById` |Yes                |Returns session with specified id|
-|**GET**    |`/api/findUsers`       |No                 |Returns all users      |
-|**GET**    |`/api/findUserById`    |No                 |Returns user with specified id|
 |**POST**   |`/api/addUser`         |No                 |Adds a user to the database|
 
 More to come.
@@ -22,5 +20,7 @@ More to come.
 Implement some security, password hashing. Make the actual app.
 
 ## Getting set up
+
+Set up MongoDB.
 
 Clone the repo, run `npm install`, then `node app.js`

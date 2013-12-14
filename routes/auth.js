@@ -1,7 +1,8 @@
 var mongodb = require('mongodb'),
     Server = mongodb.Server,
     Db = mongodb.Db,
-    BSON = mongodb.BSONPure;
+    BSON = mongodb.BSONPure,
+    passwordHash = require('password-hash');
 
 var server = new Server('localhost', 27017, {auto_reconnect: true});
 db = new Db('bid', server);
@@ -41,7 +42,7 @@ exports.addUser = function (req, res) {
         res.redirect('/register');
     }
     db.collection('users', function (err, collection) {
-        collection.insert({username: un, password: pw, first_name: fn});
+        collection.insert({username: un, password: passwordHash.generate(pw), first_name: fn});
         res.redirect('/login');
     });
 }

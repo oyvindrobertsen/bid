@@ -11,8 +11,8 @@ var express = require('express'),
     index = require('./routes/index'),
     http = require('http'),
     path = require('path'),
-    connect = require('connect'),
     auth = require('./routes/auth'),
+    passwordHash = require('password-hash'),
     request = require('request');
 
 var app = module.exports = express();
@@ -66,7 +66,8 @@ passport.use(new LocalStrategy(
                     if (!user) {
                         return done(null, false, { message: 'Unknown user ' + username }); 
                     }
-                    if (user.password != password) {
+                    if (!passwordHash.verify(password, user.password)) {
+                        console.log('Weee!');
                         return done(null, false, { message: 'Wrong password' }); 
                     }
                     return done(null, user);

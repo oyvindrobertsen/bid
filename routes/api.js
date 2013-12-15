@@ -7,7 +7,7 @@ var Server = mongodb.Server,
     BSON = mongodb.BSONPure;
 
 var server = new Server('localhost', 27017, {auto_reconnect: true});
-db = new Db('bid', server);
+db = new Db('bid', server, {safe: false});
 
 db.open(function (err, db) {
     if (!err) {

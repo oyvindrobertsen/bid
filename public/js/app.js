@@ -9,7 +9,7 @@ angular.module('bidApp', [
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.
     when('/app', {
-      templateUrl: 'partials/homepartial.html',
+      templateUrl: 'partials/mainpartial.html',
       controller: 'appCtrl'
     }).
     otherwise({

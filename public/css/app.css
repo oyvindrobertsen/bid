@@ -52,10 +52,12 @@ body {
     background-color: #d35400;
 }
 
-.navbar a {
-    color: white;
+.navbar-brand {
+    color: #fff !important;
+    font-size: 3em;
+    font-weight: bold;
 }
 
-.navbar a:hover {
-    text-decoration: none;
+#logout-button {
+    margin-right: 5px;
 }

@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default orangepanel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Your sessions</h3>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr ng-repeat="session in sessions">
+                            <td>{{session.description}}</td>
+                        </tr>
+                    </table>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>

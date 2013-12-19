@@ -105,8 +105,9 @@ app.post('/logout', function(req, res) {
 app.post('/register', auth.addUser);
 
 // JSON API
-app.get('/api/findAllSessions', ensureAuth, api.findAllSessions);
-app.get('/api/findSessionById/:id', ensureAuth, api.findSessionById);
+app.get('/api/sessions', ensureAuth, api.getSessions);
+app.post('/api/sessions', ensureAuth, api.addSession);
+app.get('/api/sessions/:id', ensureAuth, api.getSessionById);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', index.home);

@@ -1,9 +1,8 @@
 'use strict';
 
-/* Services */
+var bidServices = angular.module('bidServices', ['ngResource']);
 
-
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('myApp.services', []).
-  value('version', '0.1');
+bidServices.factory('Bidsessions', ['$resource',
+        function($resource) {
+            return $resource('api/sessions', {}, {});
+        }]);

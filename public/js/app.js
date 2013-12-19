@@ -4,7 +4,9 @@
 
 angular.module('bidApp', [
   'ngRoute',
-  'bidControllers'
+  'ngResource',
+  'bidControllers',
+  'bidServices'
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.

@@ -2,26 +2,25 @@
 
 /* Controllers */
 
-var bidControllers = angular.module('bidControllers', []);
+var bidControllers = angular.module('bidControllers', ['bidServices']);
 
-bidControllers.controller('appCtrl', function ($scope, $http) {
-    $http({
-        method: 'GET',
-        url: '/api/findAllSessions'
-    }).
-    success(function (data, status, headers, config) {
-        $scope.sessions = data;
-        $scope.sessionCount = data.length;
-    }).
-    error(function (data, status, headers, config) {
-        $scope.errormsg = "Couldn't GET /api/findAllSessions";
-    });
-});
-
-bidControllers.controller('loginCtrl', function ($scope, $http) {
-    // write Ctrl here
-});
-
-bidControllers.controller('registerCtrl', function ($scope, $http) {
+bidControllers.controller('appCtrl', ['$scope', 'Bidsessions', function($scope, Bidsessions) {
+    $scope.sessions = Bidsessions.query();
     
-});
+    var resetForm = function() {
+        $scope.session.name = "";
+        $scope.session.description = "";
+    };
+
+    $scope.addSession = function() {
+        Bidsessions.save($scope.session, function() {
+            $scope.sessions = Bidsessions.query();
+            resetForm();
+        });
+    };
+
+    $scope.resetForm = function() {
+        resetForm();
+        $scope.sessions = Bidsessions.query();
+    }
+}]);

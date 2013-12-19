@@ -9,15 +9,16 @@ The backend is a simple RESTful API written with Express with the following endp
 
 |Method     |URL                    |Authenticated      |Description            |
 |-----------|-----------------------|-------------------|-----------------------|
-|**GET**    |`/api/findAllSessions` |Yes                |Returns all sessions   |
-|**GET**    |`/api/findSessionById` |Yes                |Returns session with specified id|
+|**GET**    |`/api/sessions`        |Yes                |Returns all sessions   |
+|**POST**   |`/api/sessions`        |Yes                |Add a new session      |
+|**GET**    |`/api/session/:id`     |Yes                |Returns session with specified id|
 |**POST**   |`/api/addUser`         |No                 |Adds a user to the database|
 
 More to come.
 
 ## Todo
 
-Implement some security, password hashing. Make the actual app.
+Make the actual app.
 
 ## Getting set up
 

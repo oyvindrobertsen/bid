@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies
  */
@@ -16,7 +15,6 @@ var express = require('express'),
     request = require('request');
 
 var app = module.exports = express();
-
 
 /**
  * Configuration
@@ -44,7 +42,7 @@ app.use(app.router);
  * @param   res     response
  * @param   next    the next function
  */
-function ensureAuth (req, res, next) {
+function ensureAuth(req, res, next) {
     if (req.isAuthenticated()) { return next(); }
     res.redirect('/login');
 }
@@ -60,30 +58,30 @@ passport.deserializeUser(function (id , done) {
 });
 
 passport.use(new LocalStrategy(
-            function (username, password, done) {
-                auth.findByUsername (username, function (err, user) {
-                    if (err) { return done(err); }
-                    if (!user) {
-                        return done(null, false, { message: 'Unknown user ' + username }); 
-                    }
-                    if (!passwordHash.verify(password, user.password)) {
-                        console.log('Weee!');
-                        return done(null, false, { message: 'Wrong password' }); 
-                    }
-                    return done(null, user);
-                });
+    function (username, password, done) {
+        auth.findByUsername (username, function (err, user) {
+            if (err) { return done(err); }
+            if (!user) {
+                return done(null, false, { message: 'Unknown user ' + username });
             }
-            ));
+            if (!passwordHash.verify(password, user.password)) {
+                console.log('Weee!');
+                return done(null, false, { message: 'Wrong password' });
+            }
+            return done(null, user);
+        });
+    }
+));
 
 // development only
 if (app.get('env') === 'development') {
-  app.use(express.errorHandler());
+    app.use(express.errorHandler());
 }
 
 // production only
 if (app.get('env') === 'production') {
-  // TODO
-};
+    console.log("Prod baby!");
+}
 
 
 /**
@@ -97,7 +95,7 @@ app.get('/register', index.register);
 app.get('/app', ensureAuth, index.app);
 
 app.post('/login', passport.authenticate('local', {successRedirect: '/app', failureRedirect: '/login', failureFlash: false}));
-app.post('/logout', function(req, res) {
+app.post('/logout', function (req, res) {
     req.logout();
     res.redirect('/home');
 });

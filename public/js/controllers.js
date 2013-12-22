@@ -20,7 +20,7 @@ bidControllers.controller('appCtrl', ['$scope', 'Bidsessions', function($scope, 
     };
 
     $scope.resetForm = function() {
-        resetForm();
         $scope.sessions = Bidsessions.query();
-    }
+        resetForm();
+    };
 }]);

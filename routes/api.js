@@ -7,7 +7,7 @@ var Server = mongodb.Server,
     BSON = mongodb.BSONPure;
 
 var server = new Server('localhost', 27017, {auto_reconnect: true});
-db = new Db('bid', server, {safe: false});
+var db = new Db('bid', server, {safe: false});
 
 db.open(function (err, db) {
     if (!err) {
@@ -17,15 +17,15 @@ db.open(function (err, db) {
 
 exports.getSessions = function(req, res) {
     db.collection('bid_sessions', function (err, collection) {
-        collection.find().toArray(function (err, items) {
+        collection.find({user_id : req.user._id}).toArray(function (err, items) {
             res.send(items);
         });
     });
 };
 
 exports.addSession = function(req, res) {
-    db.collection('bid_sessions', function(err, collection) {
-        collection.insert({name: req.body.name, description: req.body.description});
+    db.collection('bid_sessions', function(err, sessioncollection) {
+        sessioncollection.insert({user_id: req.user._id, name: req.body.name, description: req.body.description});
         res.send(200, {});
     });
 };

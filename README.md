@@ -12,7 +12,7 @@ The backend is a simple RESTful API written with Express with the following endp
 |**GET**    |`/api/sessions`        |Yes                |Returns all sessions   |
 |**POST**   |`/api/sessions`        |Yes                |Add a new session      |
 |**GET**    |`/api/session/:id`     |Yes                |Returns session with specified id|
-|**POST**   |`/api/addUser`         |No                 |Adds a user to the database|
+
 
 More to come.
 

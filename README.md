@@ -17,8 +17,11 @@ The backend is a simple RESTful API written with Express with the following endp
 More to come.
 
 ## Todo
-
-Make the actual app.
+* Set up a session admin overview
+* Make a participants session view
+* Separate users based on type; participant/host
+* Allow a user to "upgrade" from participant to host
+* Set up some realtime stuff
 
 ## Getting set up
 

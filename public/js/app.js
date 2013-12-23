@@ -9,14 +9,18 @@ angular.module('bidApp', [
   'bidServices'
 ]).
 config(function ($routeProvider, $locationProvider) {
-  $routeProvider.
-    when('/app', {
-      templateUrl: 'partials/mainpartial.html',
-      controller: 'appCtrl'
-    }).
-    otherwise({
-      redirectTo: '/app'
-    });
+    $routeProvider.
+        when('/app', {
+            templateUrl: 'partials/mainpartial.html',
+            controller: 'appCtrl'
+        }).
+        when('/session/:id', {
+            templateUrl: 'partials/sessionadminpartial.html',
+            controller: 'sessionAdminCtrl'
+        }).
+        otherwise({
+            redirectTo: '/app'
+        });
 
-  $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
 });

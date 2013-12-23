@@ -92,15 +92,18 @@ if (app.get('env') === 'production') {
 app.get('/home', index.home);
 app.get('/login', index.login);
 app.get('/register', index.register);
-app.get('/app', ensureAuth, index.app);
-
 app.post('/login', passport.authenticate('local', {successRedirect: '/app', failureRedirect: '/login', failureFlash: false}));
 app.post('/logout', function (req, res) {
     req.logout();
     res.redirect('/home');
 });
-
 app.post('/register', auth.addUser);
+
+
+// App routes
+app.get('/app', ensureAuth, index.app);
+app.get('/session/:id', ensureAuth, index.app);
+
 
 // JSON API
 app.get('/api/sessions', ensureAuth, api.getSessions);

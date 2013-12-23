@@ -24,3 +24,7 @@ bidControllers.controller('appCtrl', ['$scope', 'Bidsessions', function($scope, 
         resetForm();
     };
 }]);
+
+bidControllers.controller('sessionAdminCtrl', ['$scope', '$routeParams', 'Bidsession', function($scope, $routeParams, Bidsession) {
+    $scope.session = Bidsession.query({id: $routeParams.id});
+}]);

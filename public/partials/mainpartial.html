@@ -7,14 +7,12 @@
                     <a href="#" data-toggle="modal" data-target="#addsession-modal"><span class="glyphicon glyphicon-plus-sign"></span></a>
                 </h3>
             </div>
-            <div class="panel-body">
-                <div class="table-responsive">
-                    <table class="table">
-                        <tr ng-repeat="session in sessions">
-                            <td>{{session.name}}</td><td>{{session.description}}</td>
-                        </tr>
-                    </table>
-                </div> 
+            <div class="table-responsive">
+                <table class="table">
+                    <tr ng-repeat="session in sessions">
+                    <td><a href="/session/{{session._id}}">{{session.name}}</a></td><td>{{session.description}}</td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>

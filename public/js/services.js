@@ -13,3 +13,8 @@ bidServices.factory('Bidsession', ['$resource',
                 query: {method:'GET', params:{}, isArray: false}
             });
         }]);
+
+bidServices.factory('Participants', ['$resource',
+        function($resource) {
+            return $resource('api/participants', {}, {});
+        }]);

@@ -6,11 +6,41 @@
             </div>
         </div>
         <div class="list-group">
-            <a href="#" class="list-group-item">Link 1</a>
-            <a href="#" class="list-group-item">Link 2</a>
+            <a href="" class="list-group-item" data-toggle="modal" data-target="#addparticipant-modal">Add participant</a>
+            <a href="" class="list-group-item">Link 2</a>
         </div>
     </div>
     <div class="col-md-9">
         <h1 class="text-center">{{session.name}}</h1>
+    </div>
+</div>
+
+
+<!-- Form modals -->
+<!-- Add participant form -->
+<div class="modal fade" id="addparticipant-modal" tabindex="-1" role="dialog" aria-labelledby="addparticipantlabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="addparticipantlabel">Add Participant</h4>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Name:</label>
+                        <input type="text" class="form-control" name="name" ng-model="participant.name" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="text" class="form-control" name="email" ng-model="participant.email" placeholder="Description">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" ng-click="resetParticipantForm()" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn orangebutton" data-dismiss="modal" ng-click="addParticipant()">Add</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

@@ -65,7 +65,6 @@ passport.use(new LocalStrategy(
                 return done(null, false, { message: 'Unknown user ' + username });
             }
             if (!passwordHash.verify(password, user.password)) {
-                console.log('Weee!');
                 return done(null, false, { message: 'Wrong password' });
             }
             return done(null, user);
@@ -109,6 +108,9 @@ app.get('/session/:id', ensureAuth, index.app);
 app.get('/api/sessions', ensureAuth, api.getSessions);
 app.post('/api/sessions', ensureAuth, api.addSession);
 app.get('/api/sessions/:id', ensureAuth, api.getSessionById);
+app.get('/api/participants', ensureAuth, api.getParticipantsBySession);
+app.post('/api/participants', ensureAuth, api.addParticipantToSession);
+app.get('/api/users/:id', ensureAuth, api.getUserById);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', index.home);

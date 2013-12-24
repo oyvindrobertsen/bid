@@ -4,7 +4,7 @@
             <div class="panel-heading">
                 <h3 class="panel-title">
                     Your sessions
-                    <a href="#" data-toggle="modal" data-target="#addsession-modal"><span class="glyphicon glyphicon-plus-sign"></span></a>
+                    <a href="" data-toggle="modal" data-target="#addsession-modal"><span class="glyphicon glyphicon-plus-sign"></span></a>
                 </h3>
             </div>
             <div class="table-responsive">
@@ -19,7 +19,8 @@
 </div>
 
 
-<!-- Form Modal -->
+<!-- Form Modals -->
+<!-- Add session form -->
 <div class="modal fade" id="addsession-modal" tabindex="-1" role="dialog" aria-labelledby="addsessionlabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -35,14 +36,14 @@
                     </div>
                     <div class="form-group">
                         <label>Description:</label>
-                        <input type="text" class="form-control" name="name" ng-model="session.description" placeholder="Description">
+                        <input type="text" class="form-control" name="description" ng-model="session.description" placeholder="Description">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" ng-click="resetForm()" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primaryi orangebutton" data-dismiss="modal" ng-click="addSession()">Save changes</button>
+                    <button type="button" class="btn orangebutton" data-dismiss="modal" ng-click="addSession()">Add</button>
                 </div>
             </form>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+    </div>
+</div>

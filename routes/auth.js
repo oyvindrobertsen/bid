@@ -35,14 +35,14 @@ exports.findUserById = function(id, fn) {
 }
 
 exports.addUser = function (req, res) {
-    un = req.body.username;
-    pw = req.body.password;
-    fn = req.body.first_name;
-    if (!un || !pw || !fn) {
+    var un = req.body.username;
+    var pw = req.body.password;
+    var n = req.body.first_name;
+    if (!un || !pw || !n) {
         res.redirect('/register');
     }
     db.collection('users', function (err, collection) {
-        collection.insert({username: un, password: passwordHash.generate(pw), first_name: fn});
+        collection.insert({username: un, password: passwordHash.generate(pw), name: n, type: 'host'});
         res.redirect('/login');
     });
 }

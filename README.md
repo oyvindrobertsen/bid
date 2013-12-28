@@ -12,6 +12,9 @@ The backend is a simple RESTful API written with Express with the following endp
 |**GET**    |`/api/sessions`        |Yes                |Returns all sessions   |
 |**POST**   |`/api/sessions`        |Yes                |Add a new session      |
 |**GET**    |`/api/session/:id`     |Yes                |Returns session with specified id|
+|**GET**    |`/api/participants`    |Yes                |Returns a list of the participants of a session. Session id must be in request body.
+|**POST**   |`/api/participants`    |Yes                |Adds a participant to a session. Session id must be in request body. Also registers the participant in the user db, this leads to simpler authentication.|
+|**GET**    |`/api/users/:id`       |Yes                |Gets user by id.       |
 
 
 More to come.
@@ -19,7 +22,6 @@ More to come.
 ## Todo
 * Set up a session admin overview
 * Make a participants session view
-* Separate users based on type; participant/host
 * Allow a user to "upgrade" from participant to host
 * Set up some realtime stuff
 

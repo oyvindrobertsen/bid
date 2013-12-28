@@ -79,6 +79,7 @@ exports.addParticipantToSession = function(req, res) {
 exports.getUserById = function(req, res) {
     db.collection('users', function(err, collection) {
         collection.findOne({_id: new BSON.ObjectID(req.params.id)}, function(err, user) {
+            delete user.password;
             res.send(user);
         })
     });

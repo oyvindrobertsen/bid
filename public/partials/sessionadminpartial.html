@@ -14,7 +14,25 @@
         <h1 class="text-center">{{session.name}}</h1>
     </div>
 </div>
-
+<div class="row">
+    <div class="col-md-9 col-md-offset-3">
+        <div class="panel panel-default orangepanel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Participant overview</h3>
+            </div>
+            <table class="table">
+                <tr class="active">
+                    <th>Participant</th>
+                    <th>Current bid</th>
+                </tr>
+                <tr ng-repeat="participant in session.participants">
+                    <td>{{participant.name}}</td>
+                    <td>{{participant.curr_bid}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
 
 <!-- Form modals -->
 <!-- Add participant form -->

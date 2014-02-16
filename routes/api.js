@@ -65,7 +65,7 @@ exports.addParticipantToSession = function(req, res) {
             db.collection('bid_sessions', function(err, sessioncollection) {
                 sessioncollection.update(
                         {_id: new BSON.ObjectID(req.body.session_id)},
-                        {$addToSet: {participants: {user_id: user._id, curr_bid: 0}}}
+                        {$addToSet: {participants: {user_id: user._id, name: user.name, curr_bid: 0}}}
                     );
                 res.send(200, {});
             });

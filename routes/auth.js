@@ -46,3 +46,11 @@ exports.addUser = function (req, res) {
         res.redirect('/login');
     });
 }
+
+exports.userCount = function(socket) {
+    db.collection('users', function(err, coll) {
+        coll.count(function(err, count) {
+            socket.emit('users', {count: count});
+        })
+    })
+}

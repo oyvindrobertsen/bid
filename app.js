@@ -82,7 +82,6 @@ if (app.get('env') === 'production') {
     console.log("Prod baby!");
 }
 
-
 /**
  * Routes
  */
@@ -110,6 +109,7 @@ app.post('/api/sessions', ensureAuth, api.addSession);
 app.get('/api/sessions/:id', ensureAuth, api.getSessionById);
 app.get('/api/participants', ensureAuth, api.getParticipantsBySession);
 app.post('/api/participants', ensureAuth, api.addParticipantToSession);
+app.del('/api/participants', ensureAuth, api.removeParticipantFromSession);
 app.get('/api/users/:id', ensureAuth, api.getUserById);
 
 // redirect all others to the index (HTML5 history)
@@ -120,6 +120,12 @@ app.get('*', index.home);
  * Start Server
  */
 
-http.createServer(app).listen(app.get('port'), function () {
+var server = http.createServer(app).listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+var io = require('socket.io').listen(server);
+
+io.sockets.on('connection', function(socket) {
+    socket.emit('users', {count: 3});
+})

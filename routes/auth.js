@@ -7,7 +7,7 @@ var mongodb = require('mongodb'),
 var server = new Server('localhost', 27017, {auto_reconnect: true});
 db = new Db('bid', server, {safe: false});
 
-db.open(function(err, db) { return; });
+db.open(function(err, db) {  });
 
 exports.findByUsername = function(username, fn) {
     db.collection('users', function(err, collection) {

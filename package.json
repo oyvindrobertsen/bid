@@ -9,6 +9,7 @@
     "passport-local": "~0.1.6",
     "request": "~2.29.0",
     "ejs": "~0.8.5",
-    "password-hash": "~1.2.1"
+    "password-hash": "~1.2.1",
+    "socket.io": "~0.9.16"
   }
 }

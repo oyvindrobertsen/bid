@@ -73,6 +73,12 @@ exports.addParticipantToSession = function(req, res) {
     });    
 };
 
+exports.removeParticipantFromSession = function(req, res) {
+    db.collection('bid_sessions', function(err, sessioncollection) {
+        
+    });
+};
+
 /*
  * User API
  */
